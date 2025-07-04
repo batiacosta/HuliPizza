@@ -10,10 +10,28 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+            
+            ZStack{
+                Image("surfBanner")
+                    .resizable()
+                    .scaledToFit()
+                Text("HuliPizza")
+                    .background()
+            }
+            
+            Text("Order Pizza!")
+                .font(.title)
+            HStack(alignment: .firstTextBaseline) {
+                Text("Your order intem")
+                Spacer()
+                Text("$00.00")
+            }
+            HStack(alignment: .top, spacing: 15){
+                Image("0_sm")
+                Text("Margharita")
+            }
+            Spacer()
         }
         .padding()
     }
