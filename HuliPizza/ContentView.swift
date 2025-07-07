@@ -18,8 +18,15 @@ struct ContentView: View {
                 Text("HuliPizza")
                     .background()
             }
+            Label{
+                Text(59.99, format: .currency(code: "USD"))
+            }
+            icon:{
+                Image(systemName: orders.isEmpty ? "cart" : "cart.circle.fill")
+            }
             Image(systemName: orders.isEmpty ? "cart" : "cart.circle.fill" )
             HStack {
+                //  Label("Cart", systemImage: "cart")  -> Simple label
                 Text("Order Pizza")
                     .font(.title)
                 Spacer()
