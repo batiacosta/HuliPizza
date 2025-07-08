@@ -8,12 +8,14 @@ import SwiftUI
 
 struct HeaderView: View {
     var body: some View {
-        ZStack{
+        ZStack(alignment: .bottomTrailing){
             Image("surfBanner")
                 .resizable()
                 .scaledToFit()
             Text("HuliPizza")
-                .background()
+                .font(.title)
+                .foregroundStyle(Color("Sky"))
+                .fontWeight(Font.Weight.bold)
         }
     }
 }
