@@ -18,7 +18,7 @@ struct MenuRowView: View {
                 Image(systemName: "circle.badge.questionmark")
             }
             VStack (alignment: .leading){
-                Text("Margharita")  
+                Text("Margharita")
                 RatingsView(rating: 4)
             }
         }
