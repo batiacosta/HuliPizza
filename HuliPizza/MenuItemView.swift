@@ -22,6 +22,7 @@ struct MenuItemView: View {
                     .font(.title)
                     .fontWeight(Font.Weight.semibold)
                     .foregroundStyle(Color("Surf"))
+                    //.frame(width: 300, height: 300) For learning purposes
                 ScrollView {
                     Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dignissim lorem non nibh tincidunt, ac tincidunt elit suscipit. Vestibulum commodo, est imperdiet pharetra suscipit, dolor mi iaculis tortor, et hendrerit velit enim sit amet ante. Quisque ut maximus tortor. Ut aliquam augue sem, lobortis commodo arcu sagittis in. Donec et elit vestibulum arcu aliquam ultrices at id diam. Curabitur rutrum, metus at dapibus feugiat,")
                         .font(.custom("Jetbrains Mono", size: 18, relativeTo: .body ))

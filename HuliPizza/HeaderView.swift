@@ -18,6 +18,7 @@ struct HeaderView: View {
                 .fontWeight(Font.Weight.bold)
                 .foregroundStyle(.thickMaterial)
                 .shadow(radius: 5)
+                .padding(5)
         }
     }
 }
