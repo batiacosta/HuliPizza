@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OrderRowView: View {
-    var order: Int = 0
+    var order: Int
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
             Text("Your order intem \(order)")
@@ -19,5 +19,5 @@ struct OrderRowView: View {
 }
 
 #Preview {
-    OrderRowView()
+    OrderRowView(order: 1)
 }

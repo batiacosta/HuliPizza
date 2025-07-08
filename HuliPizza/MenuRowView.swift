@@ -8,11 +8,23 @@
 import SwiftUI
 
 struct MenuRowView: View {
+    var item: Int
     var body: some View {
-        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Hello, world!@*/Text("Hello, world!")/*@END_MENU_TOKEN@*/
+        HStack(alignment: .top, spacing: 15){
+            if let image = UIImage(named: "\(item)_sm"){
+                Image(uiImage: image).font(.largeTitle)
+            }
+            else{
+                Image(systemName: "circle.badge.questionmark")
+            }
+            VStack (alignment: .leading){
+                Text("Margharita")
+                Text("Description ")
+            }
+        }
     }
 }
 
 #Preview {
-    MenuRowView()
+    MenuRowView(item: 1)
 }

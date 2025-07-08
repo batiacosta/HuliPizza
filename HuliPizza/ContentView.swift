@@ -11,21 +11,9 @@ struct ContentView: View {
     var orders:[Int] = [1, 2, 3 ,4, 5]
     var body: some View {
         VStack {
-            OrderView()
-            HStack {
-                //  Label("Cart", systemImage: "cart")  -> Simple label
-                Text("Order Pizza")
-                    .font(.title)
-                Spacer()
-            }
-            ScrollView{
-                ForEach(orders, id: \.self) { order in
-                    OrderRowView(order: order)
-                }
-            }
-            
+            HeaderView()
+            OrderView(orders: orders)
             MenuItemView()
-            
             MenuView()
             Spacer()
         }
