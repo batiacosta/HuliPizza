@@ -15,6 +15,7 @@ struct ContentView: View {
             HeaderView()
             if showOrders {
                 OrderView(orders: orders)
+                    .cornerRadius(10)
             }else{
                 MenuItemView()
                 MenuView()
