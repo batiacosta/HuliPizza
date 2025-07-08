@@ -11,6 +11,8 @@ struct MenuItemView: View {
         VStack {
             if let image = UIImage(named: "0_lg"){
                 Image(uiImage: image)
+                    .cornerRadius(10)
+                    //.clipShape(RoundedRectangle(cornerRadius: 10))
             }else{
                 Image("surfboard_lg")
             }
