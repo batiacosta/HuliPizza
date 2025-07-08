@@ -22,6 +22,13 @@ struct ContentView: View {
             Spacer()
         }
         .padding()
+// Just for learning purposes. Background looks UGLY
+//        .background(.linearGradient(
+//            colors: [Color("Surf"), Color("Sky"), .cyan.opacity(0.1)],
+//            startPoint: .topLeading,
+//            endPoint: .bottomTrailing
+//        ))
+
     }
 }
 

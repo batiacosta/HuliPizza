@@ -30,6 +30,7 @@ struct OrderView: View {
                 }
             } 
         }
+        .background(.blue.opacity(0.1))
     }
 }
 
