@@ -12,6 +12,7 @@ struct MenuItemView: View {
             if let image = UIImage(named: "0_lg"){
                 Image(uiImage: image)
                     .cornerRadius(10)
+                    .shadow(radius: 5)
                     //.clipShape(RoundedRectangle(cornerRadius: 10))
             }else{
                 Image("surfboard_lg")

@@ -14,8 +14,10 @@ struct HeaderView: View {
                 .scaledToFit()
             Text("HuliPizza")
                 .font(.title)
-                .foregroundStyle(Color("Sky"))
+                //.foregroundStyle(Color("Sky"))
                 .fontWeight(Font.Weight.bold)
+                .foregroundStyle(.thickMaterial)
+                .shadow(radius: 5)
         }
     }
 }
