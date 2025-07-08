@@ -11,16 +11,9 @@ struct RatingsView: View {
     var rating: Int
     var body: some View {
         HStack {
-            ForEach(1 ... 6, id: \.self){index in
-                if rating >= index {
-                    Image(systemName: "fork.knife.circle.fill")
-                        .font(.largeTitle)
-                        .foregroundStyle(.yellow)
-                }else{
-                    Image(systemName: "fork.knife.circle")
-                        .font(.largeTitle)
-                        .foregroundStyle(.gray)
-                }
+            ForEach(1 ... 6, id: \.self){ index in
+                Image(systemName: (index <= rating) ? "fork.knife.circle.fill" : "fork.knife.circle")
+                    .foregroundStyle((index <= rating) ? .yellow : .gray)
             }
             
             
