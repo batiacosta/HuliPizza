@@ -12,7 +12,7 @@ struct OrderView: View {
         VStack {
             ZStack (alignment: .top){
                 ScrollView{
-                    ForEach(orders, id: \.id) { order in
+                    ForEach(orders) { order in
                         //OrderRowView(order: order)
                         Text(order.item.name)
                             .padding(4)
