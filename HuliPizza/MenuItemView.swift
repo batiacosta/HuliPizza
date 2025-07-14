@@ -9,6 +9,7 @@ import SwiftUI
 struct MenuItemView: View {
     @State private var hasItems: Bool = false
     @Binding var selectedItem: MenuItem
+    @ObservedObject var orders: OrderModel = OrderModel()
     var body: some View {
         VStack {
             if let image = UIImage(named: "\(selectedItem.id)_lg"){
@@ -29,6 +30,7 @@ struct MenuItemView: View {
                 }
                 Button{
                     hasItems = true
+                    orders.addOrder(selectedItem, quantity: 1)
                 }label: {
                     Spacer()
                     Text(selectedItem.price, format: .currency(code: "USD"))
@@ -40,6 +42,7 @@ struct MenuItemView: View {
                 }.clipShape(.buttonBorder)
                     .background(.red, in: Capsule())
                     .padding(5)
+                    .disabled(selectedItem.id < 0)
             }
         }
         .background(.thinMaterial)
@@ -48,5 +51,5 @@ struct MenuItemView: View {
 }
 
 #Preview {
-    MenuItemView(selectedItem: .constant(testMenuItem))
+    MenuItemView(selectedItem: .constant(testMenuItem), orders: OrderModel())
 }

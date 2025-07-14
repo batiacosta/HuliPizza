@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var menu: [MenuItem]
-    @State private var orders:[OrderItem] = testOrders
+    @StateObject var orders:OrderModel = OrderModel()
     @State private var showOrders: Bool = false
     @State private var selectedItem: MenuItem = noMenuItem
     
@@ -22,7 +22,7 @@ struct ContentView: View {
                 Button{
                     showOrders.toggle()
                 } label: {
-                    Text("\(orders.count) orders")
+                    Text("\(orders.orderItems.count) orders")
                     Spacer()
                     Image(systemName: showOrders ? "cart" : "menucard")
                         .font(.title2)
@@ -30,10 +30,10 @@ struct ContentView: View {
             }
             .foregroundStyle(.link).font(.title2)
             if showOrders {
-                OrderView(orders: $orders)
+                OrderView(orders: orders)
                     .cornerRadius(10)
             }else{
-                MenuItemView(selectedItem: $selectedItem)
+                MenuItemView(selectedItem: $selectedItem, orders: orders)
                     .cornerRadius(10)
                     .shadow(radius: 5)
                 MenuView(menu: menu, selectedItem: $selectedItem)
