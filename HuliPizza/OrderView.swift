@@ -7,48 +7,56 @@
 
 import SwiftUI
 struct OrderView: View {
-    var orders: [Int]
+    @Binding var orders: [OrderItem]
     var body: some View {
-        ZStack (alignment: .top){
-            ScrollView{
-                ForEach(orders, id: \.self) { order in
-                    OrderRowView(order: order)
-                        .padding(4)
-                        .background(
-                            .regularMaterial,
-                            in: RoundedRectangle(cornerRadius: 10)
-                        )
+        VStack {
+            ZStack (alignment: .top){
+                ScrollView{
+                    ForEach(orders, id: \.id) { order in
+                        //OrderRowView(order: order)
+                        Text(order.item.name)
+                            .padding(4)
+                            .background(
+                                .regularMaterial,
+                                in: RoundedRectangle(cornerRadius: 10)
+                            )
+                            .shadow(radius: 10)
+                            .padding(.bottom, 5)
+                            .padding([.leading, .trailing], 7)
+                    }
+                }
+                .padding(.top, 80
+                )
+                HStack (alignment: .center){
+                    Text("Order Pizza")
+                        .font(.title)
+                        .fontWeight(Font.Weight.semibold)
                         .shadow(radius: 10)
-                        .padding(.bottom, 5)
-                        .padding([.leading, .trailing], 7)
+                    Spacer()
+                    Label{
+                        Text(59.99, format: .currency(code: "USD"))
+                    }
+                    icon:{
+                        Image(systemName: orders.isEmpty ? "cart" : "cart.circle.fill")
+                    }
+                    .font(.title2)
+                    Spacer()
                 }
+                .padding()
+                .background(.ultraThinMaterial)
             }
-            .padding(.top, 80
-            )
-            HStack (alignment: .center){
-                Text("Order Pizza")
-                    .font(.title)
-                    .fontWeight(Font.Weight.semibold)
-                    .shadow(radius: 10)
-                Spacer()
-                Label{
-                    Text(59.99, format: .currency(code: "USD"))
+            Button("Delete order"){
+                if !orders.isEmpty{
+                    orders.removeLast()
                 }
-                icon:{
-                    Image(systemName: orders.isEmpty ? "cart" : "cart.circle.fill")
-                }
-                .font(.title2)
-                
-                Spacer()
-            }
-            .padding()
-            .background(.ultraThinMaterial)
-            
-        }
-        .background(.blue.opacity(0.1))
+            }.padding()
+                .background(.regularMaterial, in: Capsule())
+                .shadow(radius: 5)
+                .padding(7)
+        }.background(.blue.opacity(0.1))
     }
 }
 
 #Preview {
-    OrderView(orders: [1, 2, 3 ,4, 5])
+    OrderView(orders: .constant(testOrders))
 }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 struct MenuItemView: View {
+    @State private var hasItems: Bool = false
     var body: some View {
         VStack {
             if let image = UIImage(named: "0_lg"){
@@ -27,8 +28,23 @@ struct MenuItemView: View {
                     Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dignissim lorem non nibh tincidunt, ac tincidunt elit suscipit. Vestibulum commodo, est imperdiet pharetra suscipit, dolor mi iaculis tortor, et hendrerit velit enim sit amet ante. Quisque ut maximus tortor. Ut aliquam augue sem, lobortis commodo arcu sagittis in. Donec et elit vestibulum arcu aliquam ultrices at id diam. Curabitur rutrum, metus at dapibus feugiat,")
                         .font(.custom("Jetbrains Mono", size: 18, relativeTo: .body ))
                 }
+                Button{
+                    hasItems = true
+                }label: {
+                    Spacer()
+                    Text(12.99, format: .currency(code: "USD"))
+                        .foregroundStyle(.white)
+                        .padding(5)
+                    Image(systemName: hasItems ? "cart.badge.plus.fill" : "cart.badge.plus" )
+                        .foregroundStyle(.white)
+                    Spacer()
+                }.clipShape(.buttonBorder)
+                    .background(.red, in: Capsule())
+                    .padding(5)
             }
         }
+        .background(.thinMaterial)
+        .contentMargins(5)
     }
 }
 
