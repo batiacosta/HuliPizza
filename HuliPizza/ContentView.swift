@@ -41,6 +41,7 @@ struct ContentView: View {
             Spacer()
         }
         .padding()
+        .environmentObject(orders) // orders are available in all the subviews of this VStack
 // Just for learning purposes. Background looks UGLY
 //        .background(.linearGradient(
 //            colors: [Color("Surf"), Color("Sky"), .cyan.opacity(0.1)],

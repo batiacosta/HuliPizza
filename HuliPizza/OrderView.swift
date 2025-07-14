@@ -32,13 +32,6 @@ struct OrderView: View {
                         .fontWeight(Font.Weight.semibold)
                         .shadow(radius: 10)
                     Spacer()
-                    Label{
-                        Text(orders.orderTotal, format: .currency(code: "USD"))
-                    }
-                    icon:{
-                        Image(systemName: orders.orderItems.isEmpty ? "cart" : "cart.circle.fill")
-                    }
-                    .font(.title2)
                     Spacer()
                 }
                 .padding()
