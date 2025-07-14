@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    var menu: [MenuItem]
     @State private var orders:[OrderItem] = testOrders
     @State private var showOrders: Bool = false
+    
     var body: some View {
         VStack {
             HeaderView()
@@ -33,7 +35,7 @@ struct ContentView: View {
                 MenuItemView()
                     .cornerRadius(10)
                     .shadow(radius: 5)
-                MenuView()
+                MenuView(menu: menu)
             }
             Spacer()
         }
@@ -49,7 +51,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    ContentView(menu: MenuModel().menu)
 }
 
 
