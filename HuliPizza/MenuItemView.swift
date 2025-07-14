@@ -8,31 +8,30 @@
 import SwiftUI
 struct MenuItemView: View {
     @State private var hasItems: Bool = false
+    @Binding var selectedItem: MenuItem
     var body: some View {
         VStack {
-            if let image = UIImage(named: "0_lg"){
+            if let image = UIImage(named: "\(selectedItem.id)_lg"){
                 Image(uiImage: image)
                     .cornerRadius(10)
                     .shadow(radius: 5)
-                    //.clipShape(RoundedRectangle(cornerRadius: 10))
             }else{
                 Image("surfboard_lg")
             }
             VStack (alignment: .leading) {
-                Text("Margharita")
-                    .font(.title)
+                Text(selectedItem.name)
+                    .font(.title2)
                     .fontWeight(Font.Weight.semibold)
                     .foregroundStyle(Color("Surf"))
-                    //.frame(width: 300, height: 300) For learning purposes
                 ScrollView {
-                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dignissim lorem non nibh tincidunt, ac tincidunt elit suscipit. Vestibulum commodo, est imperdiet pharetra suscipit, dolor mi iaculis tortor, et hendrerit velit enim sit amet ante. Quisque ut maximus tortor. Ut aliquam augue sem, lobortis commodo arcu sagittis in. Donec et elit vestibulum arcu aliquam ultrices at id diam. Curabitur rutrum, metus at dapibus feugiat,")
+                    Text(selectedItem.description)
                         .font(.custom("Jetbrains Mono", size: 18, relativeTo: .body ))
                 }
                 Button{
                     hasItems = true
                 }label: {
                     Spacer()
-                    Text(12.99, format: .currency(code: "USD"))
+                    Text(selectedItem.price, format: .currency(code: "USD"))
                         .foregroundStyle(.white)
                         .padding(5)
                     Image(systemName: hasItems ? "cart.badge.plus.fill" : "cart.badge.plus" )
@@ -49,5 +48,5 @@ struct MenuItemView: View {
 }
 
 #Preview {
-    MenuItemView()
+    MenuItemView(selectedItem: .constant(testMenuItem))
 }

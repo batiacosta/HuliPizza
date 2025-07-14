@@ -11,6 +11,7 @@ struct ContentView: View {
     var menu: [MenuItem]
     @State private var orders:[OrderItem] = testOrders
     @State private var showOrders: Bool = false
+    @State private var selectedItem: MenuItem = noMenuItem
     
     var body: some View {
         VStack {
@@ -32,10 +33,10 @@ struct ContentView: View {
                 OrderView(orders: $orders)
                     .cornerRadius(10)
             }else{
-                MenuItemView()
+                MenuItemView(selectedItem: $selectedItem)
                     .cornerRadius(10)
                     .shadow(radius: 5)
-                MenuView(menu: menu)
+                MenuView(menu: menu, selectedItem: $selectedItem)
             }
             Spacer()
         }
